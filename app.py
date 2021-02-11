@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, render_template, request
 app = Flask(__name__)
 
 from flask import jsonify
@@ -39,3 +39,14 @@ def show_user_profile(query):
     data = { "data": query }
 
     return jsonify(data)
+
+
+@app.route('/image_search')
+def image_search():
+    image_url = request.args.get("image-url", "")
+
+    if image_url:
+        # do lots of stuff
+        print(image_url)
+
+    return render_template("index.html", image_url=image_url)
