@@ -89,8 +89,19 @@ def search(query):
 def image_search():
     image_url = request.args.get("image-url", "")
 
+    cakes = [
+        {
+            "name": "Budapestrulle",
+            "price": 55
+        },
+        {
+            "name": "Mandelkubb",
+            "price": 4
+        }
+    ]
+
     if image_url:
         # do lots of stuff
         print(image_url)
 
-    return render_template("index.html", image_url=image_url)
+    return render_template("index.html", image_url=image_url, cakes=cakes)
